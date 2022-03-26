@@ -1,3 +1,5 @@
+<!-- version 1.0-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div class="d-flex justify-content-center">
+        <!-- 初期画面 -->
+        <div id="initialPage" class="col-4 text-center bg-danger py-3 my-4">
+            <div>
+                <h5 class="text-light"><strong>バーチャルおみくじ</strong></h5>
+                <img class="buruburu" src="https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png" width="130" height="100">
+                <p class="text-light">箱の上にマウスをのせ、十分振ってから引いてください！</p>
+                <button class="btn btn-light rounded-pill btn-outline-dark btn-sm m-1" onclick="alert(`button is clicked`)">おみくじをひく</button> 
+                <!--click後の-->
+                <p class="mt-2 text-black-50">by Recursion Dev Team-Blue  </p>
+            </div>
+        </div>
+        <!-- 結果表示画面 -->
+        <div id="secondPage">
+        </div>
+    </>
 </body>
+<script src="script.js"></script>
 </html>
