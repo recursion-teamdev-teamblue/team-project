@@ -5,7 +5,7 @@ class Result {
     }
 }
 
-let random = Math.floor(Math.random());
+let random = Math.floor(Math.random() * 7);
 
 const result = ["大凶", "凶", "末吉", "吉", "小吉", "中吉", "大吉"];
 
