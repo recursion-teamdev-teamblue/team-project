@@ -12,6 +12,7 @@ class Result {
         this.imgUrl = imgUrl;
     }
 }
+
 //resultのリスト
 listOfresults = [
     new Result("大凶","hiohihhi", "https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png"),
@@ -19,8 +20,8 @@ listOfresults = [
     new Result("末吉","sentence","img"),
     new Result("吉","sentence", "img"),
     new Result("小吉","sentence","img"),
-    new Result("中吉","sentence","img"),
-    new Result("大吉","sentence","img")
+    new Result("中吉","立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
+    new Result("大吉","人生最高の日です。すべての望みが叶う！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003220.png")
 ];
 //結果のページ作成まで。表示はswitchToSecondPage()の中に格納
 function getRandomResult(){
