@@ -15,11 +15,11 @@ class Result {
 
 //resultのリスト
 listOfresults = [
-    new Result("大凶","hiohihhi", "https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png"),
-    new Result("凶","sentence","img"),
-    new Result("末吉","sentence","img"),
-    new Result("吉","sentence", "img"),
-    new Result("小吉","sentence","img"),
+    new Result("大凶","今が運勢の谷間です。慎重に行動し、これからの上昇に備えましょう！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003226.png"),
+    new Result("凶","望みかなわず。時期を待て。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003225-320x320.png"),
+    new Result("末吉","すべては自分次第。自分の行動で良くも悪くもなる。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003224-320x320.png"),
+    new Result("吉","sentence", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
+    new Result("小吉","sentence","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222-320x320.png"),
     new Result("中吉","立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
     new Result("大吉","人生最高の日です。すべての望みが叶う！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003220.png")
 ];
