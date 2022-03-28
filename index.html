@@ -19,7 +19,8 @@
                 <h5 class="text-light"><strong>バーチャルおみくじ</strong></h5>
                 <img class="buruburu" src="https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png" width="130" height="100">
                 <p class="text-light">箱の上にマウスをのせ、十分振ってから引いてください！</p>
-                <button id="omikuji" class="btn btn-light rounded-pill btn-outline-dark btn-sm m-1">おみくじをひく</button>
+                <button class="btn btn-light rounded-pill btn-outline-dark btn-sm m-1" onclick="switchToSecondPage()">おみくじをひく</button>
+                <!--click後の-->
                 <p class="mt-2 text-black-50">by Recursion Dev Team-Blue  </p>
             </div>
         </div>
@@ -27,7 +28,7 @@
         <div id="secondPage" class="col-4 border text-center py-3 my-4 d-none">
             <div id="string">
             </div>
-            <button id="reset" class="btn btn-light rounded-pill btn-outline-dark btn-sm" onclick="Controller.backToInitialPage">元のページに戻る</button>
+            <button id="reset" class="btn btn-light rounded-pill btn-outline-dark btn-sm" onclick="backToInitialPage()">元のページに戻る</button>
         </div>
     </div>
 </body>

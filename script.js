@@ -1,75 +1,57 @@
+//使用するHTMLエレメントの宣言を一括で最初に
+const config = {
+    initialPage: document.getElementById(`initialPage`),
+    secondPage: document.getElementById(`secondPage`),
+    string: document.getElementById(`string`)
+};
+//resultをオブジェクトとして定義付け
 class Result {
-    constructor(sentence, imgUrl){
+    constructor(fortune,sentence,imgUrl){
+        this.fortune = fortune;
         this.sentence = sentence;
         this.imgUrl = imgUrl;
     }
 }
 
-const result = ["大凶", "凶", "末吉", "吉", "小吉", "中吉", "大吉"];
-
-const results = {
-    "大凶": new Result("hiohihhi", "https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png"),
-    "凶": new Result("", ""),
-    "末吉": new Result("", ""),
-    "吉": new Result("", ""),
-    "小吉": new Result("", ""),
-    "中吉": new Result("立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
-    "大吉": new Result("人生最高の日です。すべての望みが叶う！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003220.png"),
-}
-
-const string = document.getElementById("string");
+//resultのリスト
+listOfresults = [
+    new Result("大凶","hiohihhi", "https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png"),
+    new Result("凶","sentence","img"),
+    new Result("末吉","sentence","img"),
+    new Result("吉","sentence", "img"),
+    new Result("小吉","sentence","img"),
+    new Result("中吉","立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
+    new Result("大吉","人生最高の日です。すべての望みが叶う！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003220.png")
+];
+//結果のページ作成まで。表示はswitchToSecondPage()の中に格納
 function getRandomResult(){
     let random = Math.floor(Math.random() * 7);
-    let fortune = result[random];
-    let str = "";
-
-    str +=`
-    <h1><strong>${fortune}</strong></h1>
-    <img src="${results[fortune].imgUrl}" width="130" height="100">
-    <p>${results[fortune].sentence}</p>
-        `
-    string.innerHTML = ""
-    string.innerHTML = str;
+    let randomResult = listOfresults[random];
+    config.string.innerHTML =`
+    <h1><strong>${randomResult.fortune}</strong></h1>
+    <img src="${randomResult.imgUrl}" width="130" height="100">
+    <p>${randomResult.sentence}</p>`;
 };
-
-const config = {
-    initialPage: document.getElementById(`initialPage`),
-    secondPage: document.getElementById(`secondPage`)
-};
-
-//ページを表示する
+//ページを表示する関数
 function disPlayBlock(ele){
     ele.classList.remove(`d-none`);
     ele.classList.add(`d-block`);
 };
-//ページを非表示にする
+//ページを非表示にする関数
 function displayNone(ele){
     ele.classList.remove(`d-block`);
     ele.classList.add(`d-none`);
 };
 
-class Controller{
-    //おみくじ結果ページを非表示、リセットして最初のページを表示する
-    backToInitialPage(){
-        displayNone(config.secondPage);
-        disPlayBlock(config.initialPage);
-    };
-    //最初のページを非表示、おみくじ結果ページを表示する
-    switchToSecondPage(){
-        displayNone(config.initialPage);
-        disPlayBlock(config.secondPage);
-    }
-}
-let controller = new Controller;
-
-const omikuji = document.getElementById("omikuji");
-omikuji.addEventListener("click", function(){
-    controller.switchToSecondPage();
+//おみくじ結果ページを非表示、リセットして最初のページを表示する
+function backToInitialPage(){
+    displayNone(config.secondPage);
+    disPlayBlock(config.initialPage);
+};
+//最初のページを非表示、おみくじ結果ページを表示する
+function switchToSecondPage(){
     getRandomResult();
-})
-
-const reset = document.getElementById("reset");
-reset.addEventListener("click", function(){
-    controller.backToInitialPage()
-})
+    displayNone(config.initialPage);
+    disPlayBlock(config.secondPage);
+};
 
