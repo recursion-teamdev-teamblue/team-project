@@ -5,22 +5,21 @@ class Result {
     }
 }
 
-let random = Math.floor(Math.random() * 7);
-
 const result = ["大凶", "凶", "末吉", "吉", "小吉", "中吉", "大吉"];
 
 const results = {
     "大凶": new Result("hiohihhi", "https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png"),
-    // "凶": new Result(sentence, img),
-    // "末吉": new Result(sentence, img),
-    // "吉": new Result(sentence, img),
-    // "小吉": new Result(sentence, img),
-    // "中吉": new Result(sentence, img),
-    // "大吉": new Result(sentence, img),
+    "凶": new Result("", ""),
+    "末吉": new Result("", ""),
+    "吉": new Result("", ""),
+    "小吉": new Result("", ""),
+    "中吉": new Result("立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
+    "大吉": new Result("人生最高の日です。すべての望みが叶う！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003220.png"),
 }
 
 const string = document.getElementById("string");
 function getRandomResult(){
+    let random = Math.floor(Math.random() * 7);
     let fortune = result[random];
     let str = "";
 
