@@ -34,14 +34,29 @@ listOfResults = [
 ];
 //結果のページ作成まで。表示はswitchToSecondPage()の中に格納
 function getRandomResult(){
-    let random = Math.floor(Math.random() * 16);
+    let random = Math.floor(Math.random() * listOfResults.length);
     let randomResult = listOfResults[random];
     config.string.innerHTML =`
     <h1><strong>${randomResult.fortune}</strong></h1>
     <img src="${randomResult.imgUrl}" width="130" height="100">
     <p>${randomResult.sentence}</p>`;
+    // if(randomResult.fortune === `大吉`){
+    //     createPetal(config.string);
+    // }
 };
 //ページを表示する関数
+
+// function createPetal(ele){
+//     ele.classList.add(`cherry-blossom-container`);
+//     const petalEle = document.createElement(`span`);
+//     petalEle.className = `petal`;
+//     const minSize = 10;
+//     const maxSize = 15;
+//     const size = Math.floor(Math.random() * (maxSize - minSize + 1) + minSize);
+//     petalEle.style = `width: ${size}px; height: ${size}px; left: ${Math.random() * 100}%;`;
+//     ele.append(petalEle);
+//     setInterval(createPetal(),300);
+// }
 function disPlayBlock(ele){
     ele.classList.remove(`d-none`);
     ele.classList.add(`d-block`);
