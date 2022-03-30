@@ -14,7 +14,7 @@
 <body>
     <div class="d-flex justify-content-center">
         <!-- 初期画面 -->
-        <div id="initialPage" class="col-4 text-center bg-danger py-3 my-4">
+        <div id="initialPage" class="col-4 text-center bg-danger pt-5 my-4 h-300">
             <div>
                 <h5 class="text-light"><strong>バーチャルおみくじ</strong></h5>
                 <img class="buruburu" src="https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png" width="130" height="100" onclick="switchToSecondPage()">
@@ -24,10 +24,18 @@
             </div>
         </div>
         <!-- 結果表示画面 -->
-        <div id="secondPage" class="col-4 border text-center py-3 my-4 d-none">
-            <div id="string">
+        <div id="secondPage" class="col-4 border text-center h-300 my-4 d-none">
+            <div id="rain" class="rain-box absolute bg-dark z-index-1 ml-0 d-none">
+                <div class="rains">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
             </div>
-            <button id="reset" class="btn btn-light rounded-pill btn-outline-dark btn-sm" onclick="backToInitialPage()">元のページに戻る</button>
+            <div id="string" class="z-index-5 relative">
+            </div>
+            <button id="reset" class="z-index-5 relative btn btn-light rounded-pill btn-outline-dark btn-sm" onclick="backToInitialPage()">元のページに戻る</button>
         </div>
     </div>
 </body>

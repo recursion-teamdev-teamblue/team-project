@@ -2,7 +2,8 @@
 const config = {
     initialPage: document.getElementById(`initialPage`),
     secondPage: document.getElementById(`secondPage`),
-    string: document.getElementById(`string`)
+    string: document.getElementById(`string`),
+    rain: document.getElementById(`rain`)
 };
 //resultをオブジェクトとして定義付け
 class Result {
@@ -36,14 +37,32 @@ listOfResults = [
 function getRandomResult(){
     let random = Math.floor(Math.random() * listOfResults.length);
     let randomResult = listOfResults[random];
-    config.string.innerHTML =`
-    <h1><strong>${randomResult.fortune}</strong></h1>
-    <img src="${randomResult.imgUrl}" width="130" height="100">
-    <p>${randomResult.sentence}</p>`;
+    // 大凶時のぺーげスタイル
+    if(randomResult.fortune == "大凶"){
+        config.rain.classList.remove("d-none");
+        config.string.innerHTML =`
+        <h1 class="mt-4 text-white"><strong>${randomResult.fortune}</strong></h1>
+        <img src="${randomResult.imgUrl}" width="130" height="100">
+        <p class="pt-2 text-white">${randomResult.sentence}</p>`;
+    }
+    // 大凶以外の時のページスタイル
+    else{
+        config.string.innerHTML =`
+        <h1 class="mt-4"><strong>${randomResult.fortune}</strong></h1>
+        <img src="${randomResult.imgUrl}" width="130" height="100">
+        <p class="pt-2">${randomResult.sentence}</p>`;
+    }
     // if(randomResult.fortune === `大吉`){
     //     createPetal(config.string);
     // }
 };
+
+// 大凶の時に追加したrainエフェクトを消す
+function rainEffectRemove(){
+    if(rain.classList.contains("d-none") == false){
+        rain.classList.add("d-none");
+    }
+}
 //ページを表示する関数
 
 // function createPetal(ele){
@@ -71,6 +90,7 @@ function displayNone(ele){
 function backToInitialPage(){
     displayNone(config.secondPage);
     disPlayBlock(config.initialPage);
+    rainEffectRemove();
 };
 //最初のページを非表示、おみくじ結果ページを表示する
 function switchToSecondPage(){
