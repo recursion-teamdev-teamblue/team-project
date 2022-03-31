@@ -2,6 +2,7 @@
 const config = {
     initialPage: document.getElementById(`initialPage`),
     secondPage: document.getElementById(`secondPage`),
+    reset: document.getElementById(`reset`),
     string: document.getElementById(`string`),
     rain: document.getElementById(`rain`),
     petal: document.getElementById(`petal`)
@@ -17,20 +18,20 @@ class Result {
 
 //resultのリスト
 listOfResults = [
-    new Result("大凶","今が運勢の谷間です。慎重に行動し、これからの上昇に備えましょう！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003226.png"),
-    new Result("凶","望みかなわず。時期を待て。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003225-320x320.png"),
-    new Result("凶","望みかなわず。時期を待て。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003225-320x320.png"),
-    new Result("末吉","すべては自分次第。自分の行動で良くも悪くもなる。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003224-320x320.png"),
-    new Result("末吉","すべては自分次第。自分の行動で良くも悪くもなる。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003224-320x320.png"),
-    new Result("末吉","すべては自分次第。自分の行動で良くも悪くもなる。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003224-320x320.png"),
-    new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
-    new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
-    new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
-    new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
-    new Result("小吉","正しい道を進んでいます。そのまま積み重ねましょう。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222-320x320.png"),
-    new Result("小吉","正しい道を進んでいます。そのまま積み重ねましょう。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222-320x320.png"),
-    new Result("小吉","正しい道を進んでいます。そのまま積み重ねましょう。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222-320x320.png"),
-    new Result("中吉","立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
+    // new Result("大凶","今が運勢の谷間です。慎重に行動し、これからの上昇に備えましょう！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003226.png"),
+    // new Result("凶","望みかなわず。時期を待て。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003225-320x320.png"),
+    // new Result("凶","望みかなわず。時期を待て。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003225-320x320.png"),
+    // new Result("末吉","すべては自分次第。自分の行動で良くも悪くもなる。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003224-320x320.png"),
+    // new Result("末吉","すべては自分次第。自分の行動で良くも悪くもなる。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003224-320x320.png"),
+    // new Result("末吉","すべては自分次第。自分の行動で良くも悪くもなる。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003224-320x320.png"),
+    // new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
+    // new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
+    // new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
+    // new Result("吉","今までやらなかったことに挑戦すれば、運気もより良い方に向かうかも。", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003223-320x320.png"),
+    // new Result("小吉","正しい道を進んでいます。そのまま積み重ねましょう。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222-320x320.png"),
+    // new Result("小吉","正しい道を進んでいます。そのまま積み重ねましょう。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222-320x320.png"),
+    // new Result("小吉","正しい道を進んでいます。そのまま積み重ねましょう。","https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222-320x320.png"),
+    // new Result("中吉","立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
     new Result("中吉","立身出世の可能性あり。急に運が開ける！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003222.png"),
     new Result("大吉","人生最高の日です。すべての望みが叶う！", "https://kohacu.com/wp-content/uploads/2021/01/kohacu.com_samune_003220.png")
 ];
@@ -39,9 +40,7 @@ function getRandomResult(){
     let random = Math.floor(Math.random() * listOfResults.length);
     let randomResult = listOfResults[random];
     if(randomResult.fortune === `大吉`){
-        config.secondPage.classList.add(`text-danger`)
-        disPlayBlock(config.petal);
-        setInterval(function(){createPetal()},300);
+        daikichiPage()
     }
     // 大凶時
     if(randomResult.fortune == "大凶"){
@@ -61,6 +60,13 @@ function rainEffectRemove(){
         displayNone(config.rain);
     }
 }
+
+function daikichiPage(){
+    config.secondPage.classList.add(`text-danger`)
+    disPlayBlock(config.petal);
+    const intervalId = setInterval(function(){createPetal()},300);
+    config.reset.addEventListener(`click`,function(){clearInterval(intervalId)});
+}
 //花びらを生成する関数
 function createPetal(){
     const parentDiv = config.petal;
@@ -78,7 +84,7 @@ function createPetal(){
 function petalEffectRemove(){
     if(config.petal.classList.contains(`d-block`)){
         displayNone(config.petal);
-        config.secondPage.classList.remove(`text-danger`)
+        config.secondPage.classList.remove(`text-danger`);
     };
 };
 //ページを表示
