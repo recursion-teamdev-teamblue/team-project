@@ -21,8 +21,12 @@ p {
 
 /* 桜を表示するコンテナのスタイル */
 .cherry-blossom-container {
-    position: relative;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
     overflow: hidden; /* コンテナからはみ出した要素を隠す */
+    background-color: rgb(168, 225, 250);
   }
   
   /* 桜の花びらのスタイル */

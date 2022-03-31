@@ -2,8 +2,10 @@
 const config = {
     initialPage: document.getElementById(`initialPage`),
     secondPage: document.getElementById(`secondPage`),
+    reset: document.getElementById(`reset`),
     string: document.getElementById(`string`),
-    rain: document.getElementById(`rain`)
+    rain: document.getElementById(`rain`),
+    petal: document.getElementById(`petal`)
 };
 //resultをオブジェクトとして定義付け
 class Result {
@@ -37,45 +39,55 @@ listOfResults = [
 function getRandomResult(){
     let random = Math.floor(Math.random() * listOfResults.length);
     let randomResult = listOfResults[random];
-    // 大凶時のぺーげスタイル
-    if(randomResult.fortune == "大凶"){
-        config.rain.classList.remove("d-none");
-        config.string.innerHTML =`
-        <h1 class="mt-4 text-white"><strong>${randomResult.fortune}</strong></h1>
-        <img src="${randomResult.imgUrl}" width="130" height="100">
-        <p class="pt-2 text-white">${randomResult.sentence}</p>`;
+    if(randomResult.fortune === `大吉`){
+        daikichiPage()
     }
-    // 大凶以外の時のページスタイル
-    else{
+    // 大凶時
+    if(randomResult.fortune == "大凶"){
+        config.secondPage.classList.add(`text-white`)
+        disPlayBlock(config.rain)
+    }
         config.string.innerHTML =`
         <h1 class="mt-4"><strong>${randomResult.fortune}</strong></h1>
         <img src="${randomResult.imgUrl}" width="130" height="100">
         <p class="pt-2">${randomResult.sentence}</p>`;
-    }
-    // if(randomResult.fortune === `大吉`){
-    //     createPetal(config.string);
-    // }
 };
 
-// 大凶の時に追加したrainエフェクトを消す
+// 大凶の時に追加したrainエフェクトとsecondPageのtext-whiteを消す
 function rainEffectRemove(){
-    if(rain.classList.contains("d-none") == false){
-        rain.classList.add("d-none");
+    if(config.rain.classList.contains("d-none") == false){
+        config.secondPage.classList.remove(`text-white`);
+        displayNone(config.rain);
     }
 }
-//ページを表示する関数
 
-// function createPetal(ele){
-//     ele.classList.add(`cherry-blossom-container`);
-//     const petalEle = document.createElement(`span`);
-//     petalEle.className = `petal`;
-//     const minSize = 10;
-//     const maxSize = 15;
-//     const size = Math.floor(Math.random() * (maxSize - minSize + 1) + minSize);
-//     petalEle.style = `width: ${size}px; height: ${size}px; left: ${Math.random() * 100}%;`;
-//     ele.append(petalEle);
-//     setInterval(createPetal(),300);
-// }
+function daikichiPage(){
+    config.secondPage.classList.add(`text-danger`)
+    disPlayBlock(config.petal);
+    const intervalId = setInterval(function(){createPetal()},300);
+    config.reset.addEventListener(`click`,function(){clearInterval(intervalId)});
+}
+//花びらを生成する関数
+function createPetal(){
+    const parentDiv = config.petal;
+    const petalEle = document.createElement(`span`);
+    petalEle.className = `petal`;
+    const minSize = 10;
+    const maxSize = 15;
+    const size = Math.floor(Math.random() * (maxSize - minSize + 1) + minSize);
+    petalEle.style = `width: ${size}px; height: ${size}px; left: ${Math.random() * 100}%;`;
+    parentDiv.append(petalEle);
+    setTimeout(() => {
+        petalEle.remove();
+    },10000);
+}
+function petalEffectRemove(){
+    if(config.petal.classList.contains(`d-block`)){
+        displayNone(config.petal);
+        config.secondPage.classList.remove(`text-danger`);
+    };
+};
+//ページを表示
 function disPlayBlock(ele){
     ele.classList.remove(`d-none`);
     ele.classList.add(`d-block`);
@@ -91,6 +103,7 @@ function backToInitialPage(){
     displayNone(config.secondPage);
     disPlayBlock(config.initialPage);
     rainEffectRemove();
+    petalEffectRemove();
 };
 //最初のページを非表示、おみくじ結果ページを表示する
 function switchToSecondPage(){
