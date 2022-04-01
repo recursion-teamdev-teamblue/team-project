@@ -206,3 +206,26 @@ p {
   100% { transform: translate(0px,0px);}
 
 }
+
+.cloud-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  overflow: hidden;
+  background-color: #00aaff;
+}
+
+.cloud {
+  animation:cloud 15s linear infinite; 
+  background:url(https://design-webnote.com/wp/wp-content/themes/stinger8-child/images/cloud.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100px
+ }
+
+@keyframes cloud {
+  0% {background-position: 400px 0;}
+  100% {background-position:-100px 0;}
+ }

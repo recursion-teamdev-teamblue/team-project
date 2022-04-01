@@ -5,7 +5,8 @@ const config = {
     reset: document.getElementById(`reset`),
     string: document.getElementById(`string`),
     rain: document.getElementById(`rain`),
-    petal: document.getElementById(`petal`)
+    petal: document.getElementById(`petal`),
+    cloud: document.getElementById(`cloud`)
 };
 //resultをオブジェクトとして定義付け
 class Result {
@@ -47,6 +48,12 @@ function getRandomResult(){
         config.secondPage.classList.add(`text-white`)
         disPlayBlock(config.rain)
     }
+
+    // 吉時
+    if(randomResult.fortune == "吉"){
+        disPlayBlock(config.cloud)
+    }
+
         config.string.innerHTML =`
         <h1 class="mt-4"><strong>${randomResult.fortune}</strong></h1>
         <img src="${randomResult.imgUrl}" width="130" height="100">
@@ -58,6 +65,13 @@ function rainEffectRemove(){
     if(config.rain.classList.contains("d-none") == false){
         config.secondPage.classList.remove(`text-white`);
         displayNone(config.rain);
+    }
+}
+
+// 吉の時に追加したcloudエフェクトを消す
+function cloudEffectRemove(){
+    if(config.cloud.classList.contains("d-none") == false){
+        displayNone(config.cloud);
     }
 }
 
@@ -104,6 +118,7 @@ function backToInitialPage(){
     disPlayBlock(config.initialPage);
     rainEffectRemove();
     petalEffectRemove();
+    cloudEffectRemove();
 };
 //最初のページを非表示、おみくじ結果ページを表示する
 function switchToSecondPage(){
