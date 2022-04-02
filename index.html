@@ -1,0 +1,47 @@
+<!-- version 1.0-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="d-flex justify-content-center">
+        <!-- 初期画面 -->
+        <div id="initialPage" class="col-4 text-center bg-danger pt-5 my-4 h-300">
+            <div>
+                <h5 class="text-light"><strong>バーチャルおみくじ</strong></h5>
+                <img class="buruburu" src="https://illust8.com/wp-content/uploads/2020/01/omikuji_daikitchi_6574.png" width="130" height="100" onclick="switchToSecondPage()">
+                <p class="text-light">箱の上にマウスをのせ、十分振ってから引いてください！</p>
+                <!--click後の-->
+                <p class="mt-2 text-black-50">by Recursion Dev Team-Blue  </p>
+            </div>
+        </div>
+        <!-- 結果表示画面 -->
+        <div id="secondPage" class="col-4 border text-center h-300 my-4 d-none">
+            <div id="petal" class="cherry-blossom-container d-none"></div>
+            <div id="cloud" class="cloud-container z-index-1 d-none">
+                <div class="cloud"></div>
+            </div>
+            <div id="rain" class="rain-box absolute bg-dark z-index-1 ml-0 d-none">
+                <div class="rains">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div id="string" class="z-index-5 relative">
+            </div>
+            <button id="reset" class="z-index-5 relative btn btn-light rounded-pill btn-outline-dark btn-sm" onclick="backToInitialPage()">元のページに戻る</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
